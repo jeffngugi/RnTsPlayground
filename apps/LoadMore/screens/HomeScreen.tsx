@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, Divider, Spinner, FlatList } from 'native-base';
-import { gamesApi } from '../api';
+import { gamesApi } from '../../apis/api';
 import {  useInfiniteQuery } from 'react-query';
 
 
@@ -14,11 +14,11 @@ const {isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } = useIn
                 if (lastPage.next !== null) {
                     return lastPage.next;
                 }
-            
                 return lastPage;
                 }
             }
             )
+          
 
 const gameItemExtractorKey = (item:any, index:any) => {
     return index.toString();
