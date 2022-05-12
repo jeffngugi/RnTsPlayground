@@ -8,7 +8,7 @@ export const gamesApi = {
       return res.json();
     }),
 
-  fetchsAllGames: ({ pageParam = 1 }) =>
+  fetchGamesBcyYear: ({ pageParam = 1 }) =>
     axios.get(`${BASE_URL}/games?key=${API_KEY}&page=${pageParam}`)
     .then(res=>{
       console.log(res?.data)
@@ -17,7 +17,15 @@ export const gamesApi = {
     )
     .catch(()=>{
       console.log('Games fetching went')
-    })
+    }),
+    fetchGamesByYear: ({ pageParam = 1 }) =>
+      axios.get(`${BASE_URL}/games?key=${API_KEY}&page=${pageParam}`)
+        .then(res => {
+          console.log('Games by year is', res?.data)
+        })
+        .catch(err =>{
+          console.log('Something wrong happened to year ')
+        }),
 };
 
 

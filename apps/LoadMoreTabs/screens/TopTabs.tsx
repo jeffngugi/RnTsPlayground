@@ -5,14 +5,15 @@ import SecondCategory from './SecondCategory'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { gamesApi } from '../../apis/api';
 import { useInfiniteQuery } from 'react-query';
+import ThirdCategory from './ThirdCategory';
 
 
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabs = () => {
     const {isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
-        'gamescart',
-        gamesApi.fetchsAllGames,
+        'gamesByYear',
+        gamesApi.fetchAllGames,
         {
         getNextPageParam: (lastPage:any) => {
             if (lastPage.next !== null) {
@@ -23,13 +24,26 @@ const TopTabs = () => {
         }
         )
 
+        console.log('The data is', data)
+  
   return (
     <SafeAreaView
     style={{flex:1}}
    >
      <Tab.Navigator>
-     <Tab.Screen name="Home" component={FirstCategory} />
-     <Tab.Screen name="Settings" component={SecondCategory} />
+     <Tab.Screen 
+          name="Indie" 
+          component={FirstCategory} 
+      />
+     <Tab.Screen 
+          name="Action" 
+          component={SecondCategory} 
+      />
+     <Tab.Screen 
+          name="com" 
+          component={ThirdCategory} 
+      />
+    
    </Tab.Navigator>
    </SafeAreaView>
   )
@@ -38,3 +52,5 @@ const TopTabs = () => {
 export default TopTabs
 
 const styles = StyleSheet.create({})
+
+

@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const SecondCategory = () => {
-  console.log('Mounted Second screen')
+const ThirdCategory = () => {
+    console.log('Mounted third screen')
   return (
     <View>
-      <Text>SecondCategory</Text>
+      <Text>ThirdScreen</Text>
     </View>
   )
 }
 
-export default SecondCategory
+export default ThirdCategory
 
 const styles = StyleSheet.create({})
